@@ -1,0 +1,80 @@
+------------------------------------------------------
+CHAPTER 01 - INTRODUCTION
+------------------------------------------------------
+
+- Machine Learning
+
+    - Research field at the intersection of statistics, AI, and computer science
+    - AKA 'Predictive Analytics' or 'Statistical Learning'
+
+
+
+- Reasons for Machine Learning
+
+    Early 'intelligent' applications used hardcoded rule systems designed by experts.
+      For instance, you could make a spam filter by creating a blacklist of words that
+      would result in an email being marked as spam.  This approach has 2 major
+      disadvantages however:
+
+      1. The logic required is specific to each domain and task.  Changing the task even
+           slightly requires a complete rewrite.
+
+      2. Designing rules requires a deep understanding of how a decision should be made
+           by a human expert.
+
+
+
+- Supervised Learning
+
+    The most successful kinds of machine learning algorithms are those that automate
+      decision-making processes by generalizing from known examples.  This is known
+      as 'supervised learning'.  The user provides the algorithm with pairs of inputs
+      and desired outputs, and the algorithm finds a way to produce the desired output
+      for an input it has never seen before.  
+
+    This is called 'supervised', because a 'teacher' provides supervision in the form 
+      of the desired outputs.  Examples include:
+
+      1. Identifying the zip code from handwritten digits on an envelope
+      2. Determinging whether a tumor is benign based on a medical image
+      3. Detecting fraudulent activity in credit card transactions
+
+
+    Notice that the data collection processes for each of these is quite different:
+
+      1. Reading envelopes is laborious, but easy and cheap.
+      2. Obtaining medial imaging and diagnoses requires expensive machinery, specialized
+           doctors, and dealing with privacy laws.
+      3. Collecting credit card transactions is easy, and your customers will report fraud.
+
+
+
+- Unsupervised Learning
+
+    With unsupervised learning, only the input data is known, and no output data is given
+      to the algorithm.  There are many successful applications of these methods, but
+      they are harder to understand and evaluate.  Examples include:
+
+      1. Identifying topics in a set of blog posts.  You might not know what the topics
+           are, or how many topics there might be, so there are no known outputs.
+
+      2. Segmenting customers into groups with similar preferences.  You don't know what
+           these groups might be, or how many there are, so there are no known outputs.
+
+      3. Detecting abnormal access patterns to a website.  Since you'll never know whether
+           the traffic was abnormal or not, this is an unsupervised problem.
+
+
+
+- Solving Problems with Machine Leaning
+
+    - It is crucial to have a representation of your input data that a computer can 
+        understand.  
+
+    - We typically think of our data as a table, with rows of data points ('samples'), 
+        and columns of properties that describe the data points ('features').  
+
+    - It is important to always remember that no algorithm will be able to make 
+        predictions without useful information.  For instance, no algorithm can predict
+        a person's gender from their last name.  However, algorithms can make good
+        predictions if they have the person's first name.
