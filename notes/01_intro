@@ -78,3 +78,58 @@ CHAPTER 01 - INTRODUCTION
         predictions without useful information.  For instance, no algorithm can predict
         a person's gender from their last name.  However, algorithms can make good
         predictions if they have the person's first name.
+
+
+
+- Knowing Your Task and Your Data
+
+    The most important part in the machine learning process is understanding the data 
+      you are working with and how it relates to the task you want to solve.  Randomly
+      choosing an algorithm and throwing your data at it will never work.  When building
+      a machine learning solution, you should always answer the following questions:
+
+      1. What questions am I trying to answer?  Do I think the data collected can answer
+           that question?
+
+      2. What is the best way to phrase my question as a machine learning problem?
+
+      3. Have I collected enough data to represent the problem I want to solve?
+
+      4. What features of the data did I extract, and will these enable the right
+           predictions?
+
+      5. How will I measure success in my application?
+
+      6. How will the machine learning solution interact with other parts of my research
+           or business product?
+
+    Many people make the mistake of not asking these questions.  Often, people will spend
+      a lot of time building complex machine learning solutions, only to find out they
+      don't solve the right problems!
+
+
+
+- Inline matplotlib Graphs
+
+    When working inside a Jupyter notebook, to show graphs directly in the brower, you
+      can use one of the magic commands so that you don't have to call plt.show() every
+      time.
+
+    # Provides an interactive environment
+    %matplotlib notebook
+
+    # Show graphs inline
+    %matplotlib inline
+
+
+
+- Module Imports
+
+    The 'mglearn' module is the accompanying code to this book.
+
+    # These are the imports assumed to be used in all code
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import mglearn
+    from IPython.display import display
