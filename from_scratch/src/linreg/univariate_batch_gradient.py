@@ -14,8 +14,8 @@ class UnivariateBatchGradient:
         iteration = 0
         while(True):
             print('iteration: %s, t0: %s, t1: %s' % (iteration, t0, t1))
-            new_t0 = adjust_t0(t0, t1)
-            new_t1 = adjust_t1(t0, t1)
+            new_t0 = self.adjust_t0(t0, t1)
+            new_t1 = self.adjust_t1(t0, t1)
             if (self.converges(t0, new_t0) and self.converges(t1, new_t1)):
                 break
             else:
@@ -24,17 +24,17 @@ class UnivariateBatchGradient:
     
     def adjust_t0(self, t0, t1):
         sum_of_differences = 0.0
-        for i in range(len(XS)):
-            difference = self.evaluate_h0(XS[i], t0, t1) - YS[i]
+        for i in range(len(self.XS)):
+            difference = self.evaluate_h0(self.XS[i], t0, t1) - self.YS[i]
             sum_of_differences += difference
-        return t0 - (self.ALPHA * (1/len(XS)) * sum_of_differences)
+        return t0 - (self.ALPHA * (1/len(self.XS)) * sum_of_differences)
     
     def adjust_t1(self, t0, t1):
         sum_of_differences = 0.0
-        for i in range(len(XS)):
-            difference = (self.evaluate_h0(XS[i], t0, t1) - YS[i]) * XS[i]
+        for i in range(len(self.XS)):
+            difference = (self.evaluate_h0(self.XS[i], t0, t1) - self.YS[i]) * self.XS[i]
             sum_of_differences += difference
-        return t1 - (self.ALPHA * (1/len(XS)) * sum_of_differences)
+        return t1 - (self.ALPHA * (1/len(self.XS)) * sum_of_differences)
     
     def evaluate_h0(self, x, t0, t1):
         return t0 + t1 * x
