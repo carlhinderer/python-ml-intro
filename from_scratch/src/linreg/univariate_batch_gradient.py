@@ -1,16 +1,26 @@
-from math import *
+import numpy as np
 
 class UnivariateBatchGradient:
     XS = [1, 2, 3, 4]
     YS = [2, 3, 4, 5]
 
     ALPHA = 0.1
-    INITIAL_T0 = 0.0
-    INITIAL_T1 = 0.0
+    INITIAL_THETA = np.array([0, 0])
     CONVERGENCE_THRESHOLD = 0.0001
 
+    def __init__(self, x, y):
+        self.validate_vectors(x, y)
+        self.x = np.array(x)
+        self.y = np.array(y)
+
+    def validate_vectors(self, x, y):
+        if (len(x) == 0):
+            raise Exception('Cannot regress without data.')
+        if (len(x) != len(y)):
+            raise Exception('The vectors must be the same length.')
+
     def print_gradients(self):
-        t0, t1 = self.INITIAL_T0, self.INITIAL_T1
+        t0, t1 = 0, 0
         iteration = 0
         while(True):
             print('iteration: %s, t0: %s, t1: %s' % (iteration, t0, t1))
