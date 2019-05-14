@@ -25,3 +25,12 @@ class TestUnivariateBatchGradient:
         theta = np.array([[0.], [0.]])
         cost = g.compute_cost_function(theta)
         assert cost == 6.75
+
+    def test_gradient_descent(self):
+        x = [1, 2, 3, 4]
+        y = [2, 3, 4, 5]
+        g = UnivariateBatchGradient(x, y)
+
+        theta = g.gradient_descent()
+        cost = g.compute_cost_function(theta)
+        assert cost <= 0.01
