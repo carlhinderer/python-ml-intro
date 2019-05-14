@@ -6,7 +6,8 @@ def test_univariate_batch_gradient():
     g = UnivariateBatchGradient(x, y)
 
     theta = g.gradient_descent()
-    print('Theta: ', theta)
+    prediction = g.predict_label(5)
+    print('Prediction: ', prediction)
 
 if __name__ == '__main__':
     test_univariate_batch_gradient()

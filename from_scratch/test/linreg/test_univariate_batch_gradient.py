@@ -34,3 +34,20 @@ class TestUnivariateBatchGradient:
         theta = g.gradient_descent()
         cost = g.compute_cost_function(theta)
         assert cost <= 0.01
+
+    def test_theta_computed_before_prediction(self):
+        x = [1, 2, 3, 4]
+        y = [2, 3, 4, 5]
+        g = UnivariateBatchGradient(x, y)
+
+        with pytest.raises(Exception):
+            g.predict(5)
+
+    def test_prediction(self):
+        x = [1, 2, 3, 4]
+        y = [2, 3, 4, 5]
+        g = UnivariateBatchGradient(x, y)
+        g.gradient_descent()
+
+        prediction = g.predict_label(5)
+        assert abs(6 - prediction) <= 0.05

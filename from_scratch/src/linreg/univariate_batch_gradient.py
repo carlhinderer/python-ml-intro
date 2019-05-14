@@ -9,6 +9,7 @@ class UnivariateBatchGradient:
         self.X = self.feature_matrix(x)
         self.y = self.label_vector(y)
         self.data_size = len(x)
+        self.computed_theta = None
 
     def validate_vectors(self, x, y):
         if (len(x) == 0):
@@ -36,6 +37,7 @@ class UnivariateBatchGradient:
         while(True):
             new_theta = self.adjust_theta(theta.copy(), alpha)
             if (self.converges(theta, new_theta)):
+                self.computed_theta = new_theta
                 return new_theta
             else:
                 theta = new_theta
@@ -56,3 +58,9 @@ class UnivariateBatchGradient:
         old_cost = self.compute_cost_function(theta)
         new_cost = self.compute_cost_function(new_theta)
         return old_cost < new_cost
+
+    def predict_label(self, x):
+        if self.computed_theta is None:
+            raise Execption('Gradient descent must be performed before predictions can be made.')
+        else:
+            return self.evaluate_h(x, self.computed_theta)
