@@ -1,9 +1,8 @@
 import numpy as np
 
 class UnivariateBatchGradient:
-    ALPHA = 0.1
-    INITIAL_THETA = np.array([0, 0])
-    CONVERGENCE_THRESHOLD = 0.0001
+    DEFAULT_ALPHA = 0.1
+    INITIAL_THETA = np.array([0., 0.])
 
     def __init__(self, x, y):
         self.validate_vectors(x, y)
@@ -30,37 +29,30 @@ class UnivariateBatchGradient:
         for i in range(self.data_size):
             h0 = self.X[i, :].dot(theta);
             sum = sum + (h0 - self.y[i])**2;
-        return sum / (2 * self.data_size);
+        return (sum / (2 * self.data_size));
 
-    def print_gradients(self):
-        t0, t1 = 0, 0
-        iteration = 0
+    def gradient_descent(self, alpha=DEFAULT_ALPHA):
+        theta = self.INITIAL_THETA
         while(True):
-            print('iteration: %s, t0: %s, t1: %s' % (iteration, t0, t1))
-            new_t0 = self.adjust_t0(t0, t1)
-            new_t1 = self.adjust_t1(t0, t1)
-            if (self.converges(t0, new_t0) and self.converges(t1, new_t1)):
-                break
+            new_theta = self.adjust_theta(theta.copy(), alpha)
+            if (self.converges(theta, new_theta)):
+                return new_theta
             else:
-                iteration += 1
-                t0, t1 = new_t0, new_t1
+                theta = new_theta
     
-    def adjust_t0(self, t0, t1):
-        sum_of_differences = 0.0
-        for i in range(len(self.XS)):
-            difference = self.evaluate_h0(self.XS[i], t0, t1) - self.YS[i]
-            sum_of_differences += difference
-        return t0 - (self.ALPHA * (1/len(self.XS)) * sum_of_differences)
+    def adjust_theta(self, theta, alpha):
+        for i in range(2):
+            sum_of_differences = 0.0
+            for j in range(self.data_size):
+                difference = (self.evaluate_h(self.X[j,i], theta) - self.y[j]) * self.X[j,i]
+                sum_of_differences += difference
+            theta[i] = theta[i] - (alpha * (1/self.data_size) * sum_of_differences)
+        return theta
     
-    def adjust_t1(self, t0, t1):
-        sum_of_differences = 0.0
-        for i in range(len(self.XS)):
-            difference = (self.evaluate_h0(self.XS[i], t0, t1) - self.YS[i]) * self.XS[i]
-            sum_of_differences += difference
-        return t1 - (self.ALPHA * (1/len(self.XS)) * sum_of_differences)
+    def evaluate_h(self, x, theta):
+        return theta[0] + theta[1] * x
     
-    def evaluate_h0(self, x, t0, t1):
-        return t0 + t1 * x
-    
-    def converges(self, t, new_t):
-        return abs(t - new_t) <= self.CONVERGENCE_THRESHOLD
+    def converges(self, theta, new_theta):
+        old_cost = self.compute_cost_function(theta)
+        new_cost = self.compute_cost_function(new_theta)
+        return old_cost < new_cost
