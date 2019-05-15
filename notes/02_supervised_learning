@@ -50,3 +50,61 @@ CHAPTER 02 - SUPERVISED LEARNING
       training sets.  The larger the variety of data points your data set contains,
       the more complex a model you can use without overfitting.  Never underestimate
       the power of more data!
+
+
+
+- Summary of Supervised Algorithms
+
+    - Nearest Neighbors
+
+        - For small datasets
+        - Good as a baseline
+        - Easy to explain
+
+    - Linear Models
+
+        - Go-to as a first algorithm to try
+        - Good for very large datasets
+        - Good for very high-dimensional data
+
+    - Naive Bayes
+
+        - Only for classification
+        - Faster than linear models, but often less accurate
+        - Good for very large datasets
+        - Good for very high-dimensional data
+
+    - Decision Trees
+
+        - Very fast
+        - Don't need scaling of the data
+        - Can be visualized and easily explained
+
+    - Random Forests
+
+        - Nearly always perform better than a single decision tree
+        - Very robust and powerful
+        - Don't need scaling of the data
+        - Not very good for high-dimensional sparse data
+
+    - Gradient Boosted Decision Trees
+
+        - Often slightly more accurate than random forests
+        - Slower to train, but faster to predict than random forests
+        - Smaller in memory than random forests
+        - Need more parameter tuning that random forests
+
+    - Support Vector Machines
+
+        - Powerful for medium-sized datasets of features with similar meaning
+        - Require scaling of data, sensitive to parameters
+
+    - Neural Networks
+
+        - Can build very complex models, particulary for large datasets
+        - Sensitive to scaling of data and to the choice of parameters
+        - Large models need a long time to train
+
+
+
+- 
