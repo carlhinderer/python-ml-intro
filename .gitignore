@@ -109,4 +109,4 @@ tmp.png
 *.dot
 
 # Cached data
-*/cache/*
+**/cache
