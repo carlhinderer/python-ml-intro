@@ -107,3 +107,6 @@ venv.bak/
 tmp
 tmp.png
 *.dot
+
+# Cached data
+*/cache/*
