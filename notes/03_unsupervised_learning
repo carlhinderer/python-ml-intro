@@ -1,0 +1,68 @@
+------------------------------------------------------
+CHAPTER 03 - UNSUPERVISED LEARNING
+------------------------------------------------------
+
+- Summary of Unsupervised Algorithms
+
+    - Unsupervised learning algorithms can be applied for exploratory data analysis and preprocessing.
+        Having the right representation of data is often crucial for supervised and unsupervised
+        learning to succeed, and preprocessing and decomposition methods play an important part
+        in data preparation.
+
+
+    - Declustering, manifold learning, and clustering are essential tools to further your understanding
+        of your data, and can be the only ways to make sense of your data in the absence of 
+        supervision information.  
+
+      Even in a supervised setting, exploratory tools are important for a better understanding of the
+        properties of the data.
+
+      Often it is hard to quantify the usefulness of an unsupervised algorithm, though this shouldn’t
+        deter you from using them to gather insights from your data.
+
+
+
+- Summary of the Estimator Interface
+
+    - All algorithms in scikit-learn, whether preprocessing, supervised learning, or unsupervised 
+        learning algorithms, are implemented as classes. These classes are called estimators in 
+        scikit-learn. To apply an algorithm, you first have to instantiate an object of the particular 
+        class:
+
+        >>> from sklearn.linear_model import LogisticRegression
+        >>> logreg = LogisticRegression()
+
+
+      The estimator class contains the algorithm, and also stores the model that is learned from data 
+        using the algorithm.
+
+      You should set any parameters of the model when constructing the model object. These parameters 
+        include regularization, complexity control, number of clusters to find, etc. 
+
+      All estimators have a 'fit' method, which is used to build the model. The fit method always 
+        requires as its first argument the data X, represented as a NumPy array or a SciPy sparse matrix, 
+        where each row represents a single data point. The data X is always assumed to be a NumPy array 
+        or SciPy sparse matrix that has continuous (floating-point) entries. Supervised algorithms also 
+        require a y argument, which is a one-dimensional NumPy array containing target values for regression 
+        or classification (i.e., the known output labels or responses).
+
+
+    - There are two main ways to apply a learned model in scikit-learn. To create a prediction in the form 
+        of a new output like y, you use the predict method. To create a new representation of the input 
+        data X, you use the transform method. 
+
+
+      This is a summary of the use cases of the predict and transform methods.
+
+                            estimator.fit(x_train, [y_train])
+
+                   estimator.predict(X_test)   estimator.transform(X_test)
+
+                      Classification              Preprocessing
+                      Regression                  Dimensionality reduction
+                      Clustering                  Feature extraction
+                                                  Feature selection
+
+
+       Additionally, all supervised models have a score(X_test, y_test) method that allows an evaluation 
+         of the model.
