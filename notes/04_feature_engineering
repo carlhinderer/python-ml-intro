@@ -1,0 +1,10 @@
+------------------------------------------------------
+CHAPTER 04 - FEATURE ENGINEERING
+------------------------------------------------------
+
+- Linear models might benefit greatly from generating new features via binning and adding
+    polynomials and interactions.
+
+
+- More complex, nonlinear models like random forests and SVMs might be able to learn complex
+   tasks without explicitly expanding the feature space.
