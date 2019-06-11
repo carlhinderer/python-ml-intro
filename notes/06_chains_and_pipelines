@@ -1,0 +1,23 @@
+------------------------------------------------------
+CHAPTER 06 - CHAINS AND PIPELINES
+------------------------------------------------------
+
+- The 'Pipeline' class is a general-purpose tool to chain together multiple processing steps in
+    a machine learning workflow.  Real-world applications rarely involve an isolated use of a
+    model, and instead are a sequence of processing steps.  Using pipelines allows us to 
+    encapsulate multiple steps into a single Python object that adheres to the traditional 
+    scikit-learn interface of 'fit', 'predict', and 'transform'.
+
+
+- In particular when doing model evaluation using cross-validation and parameter selection using
+    grid search, using the Pipeline class to capture all the processing steps is essential for proper 
+    evaluation. The Pipeline class also allows writing more succinct code, and reduces the likelihood 
+    of mistakes that can happen when building processing chains without the pipeline class (like 
+    forgetting to apply all transformers on the test set, or not applying them in the right order). 
+
+
+- Choosing the right combination of feature extraction, preprocessing, and models is somewhat of an 
+    art, and often requires some trial and error. However, using pipelines, this “trying out” of many 
+    different processing steps is quite simple. When experimenting, be careful not to overcomplicate 
+    your processes, and make sure to evaluate whether every component you are including in your model 
+    is necessary.
