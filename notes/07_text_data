@@ -1,0 +1,38 @@
+------------------------------------------------------
+CHAPTER 07 - WORKING WITH TEXT DATA
+------------------------------------------------------
+
+- In particular for text classification tasks such as spam and fraud detection or sentiment
+    analysis, bag-of-words representations provide a simple and powerful solution.
+
+
+- As is often the case in machine learning, the representation of the data is key in NLP
+    applications, and inspecting the tokens and n-grams that are extracted can give powerful
+    insight into the modeling process.
+
+
+- In text-processing applications, it is often possible to introspect models in a meaningful
+    way, for both supervised and unsupervised tasks.  You should take full advantage of
+    this ability when using NLP-based methods in practice.
+
+
+- Natural language and text processing is a large research field.  If you want to learn more:
+
+    - Natural Language Processing with Python by Steven Bird, Ewan Klein, and Edward Loper, 
+        which provides an overview of NLP together with an introduction to the nltk Python package 
+        for NLP
+
+    - The more conceptual book is the standard reference Introduction to Information Retrieval by 
+        Christopher Manning, Prabhakar Raghavan, and Hinrich Schütze, which describes fundamental 
+        algorithms in information retrieval, NLP, and machine learning
+
+
+- As we discussed earlier, the classes 'CountVectorizer' and 'TfidfVectorizer' only implement 
+    relatively simple text-processing methods. For more advanced text-processing methods, we 
+    recommend the Python packages:
+
+    - spacy (a relatively new but very efficient and well-designed package)
+
+    - nltk (a very well-established and complete but somewhat dated library)
+
+    - gensim (an NLP package with an emphasis on topic modeling)
